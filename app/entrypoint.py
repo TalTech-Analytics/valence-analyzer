@@ -12,8 +12,11 @@ def process_input():
             print("processing input:", filename)
             data = json.load(json_input)
 
-            for message in data["messages"]:
-                message["valence"] = getValence(message["content"])
+            try:
+                for message in data["messages"]:
+                    message["valence"] = getValence(message["content"])
+            except Exception:
+                print("Failed processing file")
 
             out_file = filename.replace("../input", "../output")
             os.makedirs(os.path.dirname(out_file), exist_ok=True)
