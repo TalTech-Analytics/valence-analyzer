@@ -1,13 +1,13 @@
-version: '3.8'
+version: '3.4'
 
 services:
 
     valence:
-        image: automatedtestingservice/valence
+        image: automatedtestingservice/valence-analyzer
         build:
-            context: valence
+            context: .
             dockerfile: Dockerfile-valence
         volumes:
             - "./input/:/host/input/"
             - "./output/:/host/output/"
-#            - "./app:/host/app/"
+#            - "./app:/host/app/" # For developing
