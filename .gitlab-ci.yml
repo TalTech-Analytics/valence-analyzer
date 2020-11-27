@@ -20,7 +20,7 @@ build_valence_analyzer:
     script:
         - docker-compose -f docker-compose-build-valence.yml up --no-start --build --force-recreate --no-deps
         - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        - docker tag valence $DOCKER_USER/valence-analyzer:latest
+        - docker tag $DOCKER_USER/valence $DOCKER_USER/valence-analyzer:latest
         - docker push $DOCKER_USER/valence-analyzer:latest
     after_script:
         - docker-compose -f valence/docker-compose-build-valence.yml down --remove-orphans -v -f
