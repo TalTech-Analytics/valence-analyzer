@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+
+    valence:
+        image: automatedtestingservice/valence
+        container_name: valence
+        build:
+            context: .
+            dockerfile: Dockerfile-valence

@@ -1,0 +1,12 @@
+.idea
+.env
+venv
+*.iml
+.ipynb_checkpoints
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+data
+!data/.gitkeep
+__pycache__
