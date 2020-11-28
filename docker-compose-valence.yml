@@ -4,9 +4,6 @@ services:
 
     valence:
         image: automatedtestingservice/valence-analyzer
-        build:
-            context: .
-            dockerfile: Dockerfile-valence
         volumes:
             - "./input/:/host/input/"
             - "./output/:/host/output/"
