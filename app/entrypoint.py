@@ -7,8 +7,8 @@ from valence.valencecolor import *
 
 
 def process_input():
-    for filename in glob.iglob("../input/" + '**/*.json', recursive=True):
-        with open(filename) as json_input:
+    for filename in glob.iglob("/analyzer/valence-input/" + '**/*.json', recursive=True):
+        with open(filename, encoding="utf-8") as json_input:
             print("processing input:", filename)
             data = json.load(json_input)
 
@@ -18,11 +18,15 @@ def process_input():
             except Exception:
                 print("Failed processing file")
 
-            out_file = filename.replace("../input", "../output")
+            out_file = filename.replace("/analyzer/valence-input", "/analyzer/valence-output")
+            try:
+                os.remove(out_file)
+            except Exception as e:
+                pass
             os.makedirs(os.path.dirname(out_file), exist_ok=True)
 
             print("writing output:", out_file)
-            with open(out_file, "w") as json_output:
+            with open(out_file, "w", encoding="utf-8") as json_output:
                 json.dump(data, json_output)
 
 

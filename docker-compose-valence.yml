@@ -5,6 +5,6 @@ services:
     valence:
         image: automatedtestingservice/valence-analyzer
         volumes:
-            - "./input/:/host/input/"
-            - "./output/:/host/output/"
+            - "./input/:/analyzer/valence-input/"
+            - "./output/:/analyzer/valence-output/"
 #            - "./app:/host/app/" # For developing

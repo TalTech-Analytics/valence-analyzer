@@ -1,7 +1,7 @@
 FROM continuumio/anaconda3:2020.07
 
-ADD app /host/app
-WORKDIR /host/app
+ADD app /analyzer/app
+WORKDIR /analyzer/app
 
 RUN conda create -n estnltk python=3.5 anaconda
 
