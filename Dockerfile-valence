@@ -12,4 +12,4 @@ RUN conda install -c estnltk -c conda-forge estnltk
 
 RUN conda env list
 
-ENTRYPOINT ["python3", "entrypoint.py"]
+ENTRYPOINT ["python3", "-u", "entrypoint.py"]

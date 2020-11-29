@@ -16,18 +16,23 @@ def process_input():
                 for message in data["messages"]:
                     message["valence"] = getValence(message["content"])
             except Exception:
-                print("Failed processing file")
+                print("Failed processing file. Skipping")
+                continue
 
-            out_file = filename.replace("/analyzer/valence-input", "/analyzer/valence-output")
-            try:
-                os.remove(out_file)
-            except Exception as e:
-                pass
-            os.makedirs(os.path.dirname(out_file), exist_ok=True)
+            write_output(data, filename)
 
-            print("writing output:", out_file)
-            with open(out_file, "w", encoding="utf-8") as json_output:
-                json.dump(data, json_output)
+
+def write_output(data, filename):
+    out_file = filename.replace("/analyzer/valence-input", "/analyzer/valence-output")
+    try:
+        os.remove(out_file)
+        print("Deleting file with same name")
+    except Exception:
+        print("No file with same name exists")
+    os.makedirs(os.path.dirname(out_file), exist_ok=True)
+    print("writing output:", out_file)
+    with open(out_file, "w", encoding="utf-8") as json_output:
+        json.dump(data, json_output)
 
 
 def getValence(text):
