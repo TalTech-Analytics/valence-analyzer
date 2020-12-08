@@ -3,7 +3,7 @@ version: '3.4'
 services:
 
     valence:
-        image: automatedtestingservice/valence-analyzer
+        image: envomp/valence-analyzer
         volumes:
             - "./input/:/analyzer/valence-input/"
             - "./output/:/analyzer/valence-output/"

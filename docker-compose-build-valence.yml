@@ -3,8 +3,8 @@ version: '3.4'
 services:
 
     valence:
-        image: automatedtestingservice/valence
+        image: envomp/valence-analyzer
         container_name: valence
         build:
             context: .
-            dockerfile: Dockerfile-valence
+            dockerfile: Dockerfile-valence-analyzer
