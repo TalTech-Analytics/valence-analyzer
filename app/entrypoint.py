@@ -16,8 +16,7 @@ def process_input():
                 for message in data["messages"]:
                     message["valence"] = getValence(message["content"])
             except Exception:
-                print("Failed processing file. Skipping")
-                continue
+                print("Failed processing file. Copying initial file")
 
             write_output(data, filename)
 
